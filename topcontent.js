@@ -1,103 +1,49 @@
-let countSystem = (function () {
+(function () {
 
-    count = {};
-    
+    topContent = {};
+
     ///////////////// Private properties /////////////////
 
-    let topContentData = {
-        userName: "default",
-        icon: "https://tweakers.net/i/0ZtYE7HPH-OwZ22MYi-SPJDnxYo=/x/filters:strip_exif()/u/472635/crop609f88d1700be_cropped.png?f=community",
-        karma: 100,
-        contentType: "review", 
-        title: "dit is een title", 
-        content: "dit is een review die ik ooit geschreven heb, het staat nu in de lijst met beste content woohoo!" 
-    },
-    columns = 1,
-    height = '800px',
-    theme = 'light',
-    elementID = '#topContent';
+    let settings = {
+        columns: 2,
+        height: 'auto'
+    };
+
+    ///////////////// set/change Properties /////////////////
+
+    //change columns
+    topContent.setColumns = function (value) {
+        if (typeof value !== "undefined") {
+            settings.columns = value;
+        } else {
+            return 2;
+        }
+    };
     
-    ///////////////// Public Properties /////////////////
-
-    //Data object for html
-    count.topContentData = function (value) {
-        if (typeof value !== "undefined") {
-            topContentData = value;
-        } else {
-            return topContentData;
-        }
-    };
-
-    //
-    count.columns = function (value) {
-        if (typeof value !== "undefined") {
-            columns = value;
-        } else {
-            return columns;
-        }
-    };
-
-    //Runtime in seconds
-    count.height = function (value) {
-        if (typeof value !== "undefined") {
-            height = value;
-        } else {
-            return height;
-        }
-    };
-
-    //Runtime in seconds
-    count.theme = function (value) {
-        if (typeof value !== "undefined") {
-            theme = value;
-        } else {
-            return theme;
-        }
-    };
-
-    
-
     ///////////////// Private functions /////////////////
 
-    //Generates the TopContent HTML
-    function generateHTML(topContentData) {
-
+    //Generates the TopContent HTML and returns it 
+    function generateHTML() {
+        let html = '<section class="FlexContainer"><div class="FlexItems"><div class="data-container"><div class="user"><img class="icon" src="https://tweakers.net/i/Qs_SKQljf3KmYZLAddYYHn_Yqi4=/x/filters:strip_exif()/u/486125/napster_logo.png?f=community"><div class="flex-between"><p class="username">Username</p><p class="karmapunten">2345 karma</p></div><img class="badge" src="./badge.png"></div><div class="content"><div class="content-title"><a href="#">Dit is een title</a></div><div class="content-text"><p>"In tijden van corona presteer ik het om me mildly te infuriaten over wat er bij een muisfabrikant mis is gegaan. Deze muis doet een hoop goed, maar er is één keuze gemaakt die hem voor mij toch wel redelijk de mond snoert."</p></div></div></div></div></section>';
+        return html;
     };
 
-    //gets the topContent HTML element to display content
-    function getTopContentElement(elementID) {
-
+    function setWidth(id) {
+       let changeElement = document.getElementById(id);
+       changeElement.style.width = (305 * settings.columns) + "px";
     };
-
-
 
     ///////////////// Public functions /////////////////
 
     //get the element to show the generated topContent HTML 
-    count.show = function (id) {
-        //code
+    topContent.show = function (elementID) {
+          
+        let topContentElement = document.getElementById(elementID);
+        topContentElement.innerHTML = generateHTML();
+        setWidth(elementID);
     }
 
-    count.setCssPreset = function (cssPreset) {
-        console.log(cssPreset);
-        switch (cssPreset) {
-            case 0:
-                $('#points').html(count.points());
-                $('.count-system').css({"padding": "20px", "background-color": "grey", "width": "150px","height": "auto", "text-align": "center", "color": "white"});
-                $('.count-system > p').css("margin-top", "5px");
-                $('#minutes, #seconds, #points').css("font-size", "24px");
-                break;
-            case 1:
-                $('#points').html(count.points());
-                $('.count-system').css({"padding": "20px", "background-color": "lightblue", "width": "150px","height": "auto", "text-align": "center", "color": "white"});
-                $('.count-system > p').css("margin-top", "5px");
-                $('#minutes, #seconds, #points').css("font-size", "24px");
-                break;
-            default:
-                // code block
-        }
-    };
-    return count;
+    return topContent;
 }());
 
 
