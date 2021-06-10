@@ -39,7 +39,23 @@
         let contentTitleA = document.createElement('a');
         let contentText = document.createElement('div');
         let contentTextP = document.createElement('p');
+
+        //set attributes ;\
+        icon.setAttribute('src', 'https://tweakers.net/i/Qs_SKQljf3KmYZLAddYYHn_Yqi4=/x/filters:strip_exif()/u/486125/napster_logo.png?f=community');
+        badge.setAttribute('src', './badge.png');
+        contentTitleA.setAttribute('src', '#');
         
+        //create and append text nodes ;|
+        usernameText = document.createTextNode('TechGuy2');
+        karmapuntenText = document.createTextNode(200 + ' karma');
+        contentTitleANode = document.createTextNode('dit is een title');
+        contentTextPNode = document.createTextNode('In tijden van corona');
+         
+        username.appendChild(usernameText);
+        karmapunten.appendChild(karmapuntenText);
+        contentTitleA.appendChild(contentTitleANode);
+        contentTextP.appendChild(contentTextPNode);
+
         //add all classes :|
         flexContainer.className = 'FlexContainer';
         flexItems.className = 'FlexItems';
@@ -54,25 +70,31 @@
         contentTitle.className = 'content-title';
         contentText.className = 'content-text';
         
-        //append all elements :D 
-        flexContainer.className = '';
-        flexItems.className = '';
-        dataContainer.className = '';
-        user.className = '';
-        icon.className = '';
-        flexBetween.className = '';
-        username.className = '';
-        karmapunten.className = ''; 
-        badge.className = '';
-        content.className = '';
-        contentTitle.className = '';
-        contentTitleA.className = '';
-        contentText.className = '';
-        contentTextP.className = '';
+        //append everything :)
+        flexBetween.appendChild(username);
+        flexBetween.appendChild(karmapunten);
+
+        user.appendChild(icon);
+        user.appendChild(flexBetween);
+        user.appendChild(badge);
+
+        contentTitle.appendChild(contentTitleA);
+        contentText.appendChild(contentTextP);
+        content.appendChild(contentTitle);
+        content.appendChild(contentText);
         
+        dataContainer.appendChild(user);
+        dataContainer.appendChild(content);
+
+        flexItems.appendChild(dataContainer);
+        
+        
+
+        flexContainer.appendChild(flexItems);
+        flexContainer.appendChild(flexItems.cloneNode(true));
         
         let html = '<section class="FlexContainer"><div class="FlexItems"><div class="data-container"><div class="user"><img class="icon" src="https://tweakers.net/i/Qs_SKQljf3KmYZLAddYYHn_Yqi4=/x/filters:strip_exif()/u/486125/napster_logo.png?f=community"><div class="flex-between"><p class="username">Username</p><p class="karmapunten">2345 karma</p></div><img class="badge" src="./badge.png"></div><div class="content"><div class="content-title"><a href="#">Dit is een title</a></div><div class="content-text"><p>"In tijden van corona presteer ik het om me mildly te infuriaten over wat er bij een muisfabrikant mis is gegaan. Deze muis doet een hoop goed, maar er is één keuze gemaakt die hem voor mij toch wel redelijk de mond snoert."</p></div></div></div></div></section>';
-        return html;
+        return flexContainer;
     };
 
     function setWidth(id) {
@@ -86,7 +108,7 @@
     topContent.show = function (elementID) {
           
         let topContentElement = document.getElementById(elementID);
-        topContentElement.innerHTML = generateHTML();
+        topContentElement.appendChild(generateHTML());
         setWidth(elementID);
     }
 
