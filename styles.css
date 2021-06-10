@@ -14,15 +14,14 @@
     height: auto;
     overflow: auto;
     flex-direction: row;
-    padding: 5px;
 }
 
 .FlexItems {
     box-sizing: border-box;
     width: 295px;
     height: 170px;
-    
     padding: 5px;
+    margin: 5px;
     background-color: #FFFFFF;
     border: 1px solid #ECECEC;
 }
@@ -46,7 +45,7 @@
 .user p { 
     margin: 5px;
     font-size: 12px;
-    margin-left: -45px;
+    margin-left: -30px;
 }
 
 .flex-between{
@@ -72,13 +71,12 @@
 }
 
 .content a {
-    
+    cursor: pointer;
     font-size: 12px;
     color: #014A93;
     text-decoration: none;
     text-overflow: ellipsis;
     overflow:hidden;
-    
 }
 
 .content p {
@@ -100,6 +98,6 @@
 }
 
 .badge {
-    margin-top: 5px;
-    height: 13px;
+    margin-top: 3px;
+    height: 18px;
 }

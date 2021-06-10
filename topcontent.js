@@ -48,8 +48,8 @@
         //create and append text nodes ;|
         usernameText = document.createTextNode('TechGuy2');
         karmapuntenText = document.createTextNode(200 + ' karma');
-        contentTitleANode = document.createTextNode('dit is een title');
-        contentTextPNode = document.createTextNode('In tijden van corona');
+        contentTitleANode = document.createTextNode('Roccat Kone Pure Ultra');
+        contentTextPNode = document.createTextNode('"In tijden van corona presteer ik het om me mildly te infuriaten over wat er bij een muisfabrikant mis is gegaan. Deze muis doet een hoop goed, maar er is één keuze gemaakt die hem voor mij toch wel redelijk de mond snoert"');
          
         username.appendChild(usernameText);
         karmapunten.appendChild(karmapuntenText);
@@ -88,8 +88,6 @@
 
         flexItems.appendChild(dataContainer);
         
-        
-
         flexContainer.appendChild(flexItems);
         flexContainer.appendChild(flexItems.cloneNode(true));
         
@@ -117,3 +115,29 @@
 
 
 
+
+
+///save html
+{/* <section class='FlexContainer'>
+            <div class="FlexItems">
+                <div class="data-container">
+                    <div class="user">
+                        <img class="icon" src="https://tweakers.net/i/Qs_SKQljf3KmYZLAddYYHn_Yqi4=/x/filters:strip_exif()/u/486125/napster_logo.png?f=community">
+                        <div class="flex-between">
+                            <p class="username">Username</p>
+                            <p class="karmapunten">2345 karma</p>
+                        </div> 
+                        <img class="badge" src="./badge.png"> 
+                    </div>
+                    <div class="content">
+                        <div class="content-title">
+                            <a href="#">Dit is een title</a>    
+                        </div>
+                        <div class="content-text">
+                            <p>"In tijden van corona presteer ik het om me mildly te infuriaten over wat er bij een muisfabrikant mis is gegaan. Deze muis doet een hoop goed, maar er is één keuze gemaakt die hem voor mij toch wel redelijk de mond 'snoert'."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> */}
