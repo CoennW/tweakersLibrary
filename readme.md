@@ -3,7 +3,7 @@ This library makes it easy to implement the 'Karmamuur' on Tweakers.net.
 
 ## Install
 
-The library has no dependecies.
+The library has no dependencies.
 
 Download or clone the repository to you project folder. Include the following line before the last `</body>` tag. 
 
