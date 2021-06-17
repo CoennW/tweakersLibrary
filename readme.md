@@ -3,7 +3,7 @@ This library makes it easy to implement the 'Karmamuur' on Tweakers.net.
 
 ## Install :cd:
 
-The library has no dependencies.
+The library has no dependencies and follow the 'Module Pattern'. Read more about it here: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html 
 
 Download or clone the repository to you project folder. Include the following line before the last `</body>` tag. 
 
