@@ -79,12 +79,18 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     };
- 
-    
-    //topContent.setTitle('Dit is een Top Title');
-    //topContent.setColumns(2);
+
+    //<div id="topContent">
+
+    //</div>
+
+
+   
+    topContent.setTitle('Top content');
+    topContent.setColumns(2);
     topContent.setTopContentData(topContentData);
     topContent.show('topContent');
+    
 
 
 });

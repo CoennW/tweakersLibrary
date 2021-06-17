@@ -3,11 +3,11 @@
     topContent = {};
 
     ///////////////// Private properties /////////////////
-    
+
     let settings = {
         columns: 2,
         height: 'auto',
-        title: 'Top Bijdragen',
+        title: 'Default titel',
         titleIcon: ''
     };
 
