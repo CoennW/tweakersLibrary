@@ -19,13 +19,6 @@ Last step and you're ready to go! Add a element to your HTML code and give it an
         
 </div>
 ```
-
-
-   
-    topContent.setTitle('Top content');
-    topContent.setColumns(2);
-    topContent.setTopContentData(topContentData);
-    topContent.show('topContent');
     
 ## Usage 
 
