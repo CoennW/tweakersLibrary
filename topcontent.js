@@ -3,38 +3,27 @@
     topContent = {};
 
     ///////////////// Private properties /////////////////
-
+    
     let settings = {
         columns: 2,
-        height: 'auto'
+        height: 'auto',
+        title: 'Top Bijdragen',
+        titleIcon: ''
     };
 
     let topContentData = { 
         0 : {
             user:{
-                name: "Coen",
+                name: "default",
                 userLink: "#",
-                userIcon: "https://tweakers.net/i/Qs_SKQljf3KmYZLAddYYHn_Yqi4=/x/filters:strip_exif()/u/486125/napster_logo.png?f=community"
+                userIcon: "https://tweakers.net/identicon/1007011"
             }, 
             content: {
-                title: "Dit is een title",
-                contentText: "text text text",
+                title: "Default title",
+                contentText: "default",
                 contentType: "review",
                 karma: "456"
-            }      
-        },
-        1: {
-            user:{
-                name: "Cen",
-                userLink: "#",
-                userIcon: "iconLink"
-            }, 
-            content: {
-                title: "Dit is een title",
-                contentText: "text text text",
-                contentType: "review",
-                karma: "300"
-            }
+            }           
         }
     };
 
@@ -49,7 +38,23 @@
         }
     };
 
+    //set Top Content Data
+    topContent.setTopContentData = function (value) {
+        if (typeof value !== "undefined") {
+            topContentData = value;
+        } else {
+            return topContentData;
+        }
+    };
 
+    //set Title
+    topContent.setTitle = function (value) {
+        if (typeof value !== "undefined") {
+            settings.title = value;
+        } else {
+            return settings.title;
+        }
+    };
 
     ///////////////// Private functions /////////////////
 
@@ -57,13 +62,13 @@
     function generateHTML() {
 
         let flexContainer = document.createElement('section');
-        
-        Object.entries(topContentData).forEach((item) => {
+           
+        Object.entries(topContentData).forEach((item, index) => {
 
             let data = item[1];
-
+            console.log(index);
             //create all elements ;(
-            
+
             let flexItems = document.createElement('div');
             let dataContainer = document.createElement('div');
             let user = document.createElement('div');
@@ -79,16 +84,16 @@
             let contentTextP = document.createElement('p');
 
             //set attributes ;\
-            icon.setAttribute('src', 'https://tweakers.net/i/Qs_SKQljf3KmYZLAddYYHn_Yqi4=/x/filters:strip_exif()/u/486125/napster_logo.png?f=community');
-            badge.setAttribute('src', './badge.png');
+            icon.setAttribute('src', data.user.userIcon);
+            badge.setAttribute('src', './badge' + (index == 0 ? '1' : '2') + '.png');
             contentTitleA.setAttribute('src', '#');
-            
+
             //create and append text nodes ;|
             
             usernameText = document.createTextNode(data.user.name);
             karmapuntenText = document.createTextNode(data.content.karma + ' karma');
-            contentTitleANode = document.createTextNode('Roccat Kone Pure Ultra');
-            contentTextPNode = document.createTextNode('"In tijden van corona presteer ik het om me mildly te infuriaten over wat er bij een muisfabrikant mis is gegaan. Deze muis doet een hoop goed, maar er is één keuze gemaakt die hem voor mij toch wel redelijk de mond snoert"');
+            contentTitleANode = document.createTextNode(data.content.title);
+            contentTextPNode = document.createTextNode(data.content.contentText);
             
             username.appendChild(usernameText);
             karmapunten.appendChild(karmapuntenText);
@@ -135,9 +140,32 @@
         return flexContainer;
     };
 
+    function generateTitle (title) {
+        let titleContainer = document.createElement('div');
+        titleContainer.setAttribute('id', 'titleContainer');
+
+        let iconIMG = document.createElement('img');
+        iconIMG.setAttribute('src', './icon.png')
+
+
+        let header = document.createElement('h2');
+        let titleText = document.createTextNode(title);
+        header.appendChild(titleText);
+        
+        titleContainer.appendChild(iconIMG);
+        titleContainer.appendChild(header);
+        return titleContainer;
+    }
+    //set width (based on number of columns)
     function setWidth(id) {
        let changeElement = document.getElementById(id);
        changeElement.style.width = (305 * settings.columns) + "px";
+    };
+
+    //set height of container
+    function setHeight(id) {
+        let changeElement = document.getElementById(id);
+        changeElement.style.height = (305 * settings.columns) + "px";
     };
 
     ///////////////// Public functions /////////////////
@@ -146,7 +174,10 @@
     topContent.show = function (elementID) {
           
         let topContentElement = document.getElementById(elementID);
+
+        topContentElement.appendChild(generateTitle(settings.title));
         topContentElement.appendChild(generateHTML());
+
         setWidth(elementID);
     }
 

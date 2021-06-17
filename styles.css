@@ -88,7 +88,6 @@
     height: 100%;
 }
 
-
 .icon {
     position: relative;
     height: 100%;
@@ -101,3 +100,14 @@
     margin-top: 3px;
     height: 18px;
 }
+
+#titleContainer * {
+    display: inline;
+    height: 40px;
+    vertical-align: middle;
+    margin-left: 5px;
+    color: darkred;
+}
+
+
+
