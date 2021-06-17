@@ -1,7 +1,7 @@
-# A library for a gamification wall on Tweakers.net
+# A library for a gamification wall on Tweakers.net :point_down:
 This library makes it easy to implement the 'Karmamuur' on Tweakers.net. 
 
-## Install
+## Install :cd:
 
 The library has no dependencies.
 
@@ -20,7 +20,7 @@ Last step and you're ready to go! Add a element to your HTML code and give it an
 </div>
 ```
     
-## Usage 
+## Usage :game_die:
 
 There are several option available to customize topcontent.js to your likings.  
 
