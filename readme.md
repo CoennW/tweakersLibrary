@@ -5,7 +5,7 @@ This library makes it easy to implement the 'Karmamuur' on Tweakers.net.
 
 The library has no dependencies and follows the 'Module Pattern'. Read more about it here: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html 
 
-Download or clone the repository to you project folder. Include the following line before the last `</body>` tag. 
+Download or clone the repository to your project folder. Include the following line before the last `</body>` tag. 
 
 ```
 <script src="topcontent.js"></script>
