@@ -12,7 +12,7 @@ Download or clone the repository to your project folder. Include the following l
 </body>
 ```
 
-Last step and you're ready to go! Add a element to your HTML code and give it an ID. This is where the library will output its generated HTML.  
+Last step and you're ready to go! Add an element to your HTML code and give it an ID. This is where the library will output its generated HTML.  
 
 ```
 <div id="topContent">
